@@ -90,6 +90,7 @@ module.exports = {
 
 
  async down (queryInterface, Sequelize) {
-   await queryInterface.bulkDelete('bands', null, {});
- }
+    // note that this deletes ALL data from the bands table
+    await queryInterface.bulkDelete('bands', null, {});
+  }
 };
