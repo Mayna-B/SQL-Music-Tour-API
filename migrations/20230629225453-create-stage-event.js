@@ -1,8 +1,7 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
+'use strict'
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('stage_Events', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('stage_events', {
       stage_events_id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,16 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       stage_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.SMALLINT,
         allowNull: false
       },
       event_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.SMALLINT,
         allowNull: false
       }
-    });
+    })
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('stage_Events');
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('stage_events')
   }
-};
+}
